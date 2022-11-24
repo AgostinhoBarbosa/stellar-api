@@ -1,10 +1,10 @@
 {
-    "name": "agostinhobarbosa/stellar-api",
+    "name": "zulucrypto/stellar-api",
     "description": "API client for the Stellar network",
     "autoload": {
         "psr-4": {
-            "AgostinhoBarbosa\\StellarSdk\\": "src/",
-            "AgostinhoBarbosa\\StellarSdk\\Test\\": "tests/"
+            "ZuluCrypto\\StellarSdk\\": "src/",
+            "ZuluCrypto\\StellarSdk\\Test\\": "tests/"
         }
     },
     "require": {
