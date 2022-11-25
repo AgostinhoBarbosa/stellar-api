@@ -172,12 +172,7 @@ class Server
 
         $response = $this->apiClient->get($url);
 
-        $payments = [];
-        foreach ($response->getRecords() as $rawRecord) {
-            $payments[] = Payment::fromRawResponseData($rawRecord);
-        }
-
-        return $payments;
+        return $response->getRawData();
     }
 
     /**
