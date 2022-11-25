@@ -163,6 +163,24 @@ class Server
     }
 
     /**
+     * @param $transactionHash
+     * @return array|Payment[]
+     */
+    public function getTransactionByHash($transactionHash)
+    {
+        $url = sprintf('/transactions/%s', $transactionHash);
+
+        $response = $this->apiClient->get($url);
+
+        $payments = [];
+        foreach ($response->getRecords() as $rawRecord) {
+            $payments[] = Payment::fromRawResponseData($rawRecord);
+        }
+
+        return $payments;
+    }
+
+    /**
      * @param $accountId
      * @return bool
      * @throws Horizon\Exception\HorizonException
