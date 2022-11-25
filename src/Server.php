@@ -170,9 +170,12 @@ class Server
     {
         $url = sprintf('/transactions/%s', $transactionHash);
 
+        $transaction = $this->getPaymentsByTransactionHash($transactionHash);
         $response = $this->apiClient->get($url);
+        $response = $response->getRawData();
 
-        return $response->getRawData();
+        $return =  (object) array_merge((array) $transaction, (array) $response);
+        return $return;
     }
 
     /**
