@@ -171,6 +171,7 @@ class Server
         $url = sprintf('/transactions/%s', $transactionHash);
 
         $transaction = $this->getPaymentsByTransactionHash($transactionHash)[0];
+        $transaction = $transaction->getRawData();
         $response = $this->apiClient->get($url);
         $response = $response->getRawData();
 
